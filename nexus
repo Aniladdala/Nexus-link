@@ -2,3 +2,22 @@ sudo wget -O nexus.tar.gz https://download.sonatype.com/nexus/3/latest-unix.tar.
 
 Nexus statrt path
 vim /etc/systemd/system/nexus.service
+
+Nexus default file in vim
+
+[Unit]
+Description=nexus service
+After=network.target
+
+[Service]
+Type=forking
+LimitNOFILE=65536
+User=nexus
+Group=nexus
+ExecStart=/app/nexus/bin/nexus start
+ExecStop=/app/nexus/bin/nexus stop
+User=nexus
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
