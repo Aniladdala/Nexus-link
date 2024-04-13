@@ -1,1 +1,8 @@
+To download nexus
+sudo wget -O nexus.tar.gz https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+
+Nexus statrt path
+vim /etc/systemd/system/nexus.service
+
+To check connection of nexus
 chkconfig nexus on
